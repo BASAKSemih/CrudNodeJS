@@ -18,7 +18,8 @@ router.post('/', async function (req, res, next) {
         
     }
     await db.User.create( {username: req.body.username, password: req.body.password} );
-    res.redirect('/')
+    //res.redirect('login', {title: 'Vous pouvez vous connecter à présent'});
+    res.render('login', { title: 'Express', error:'Vous pouvez vous connecter ' });
     
 
 });
