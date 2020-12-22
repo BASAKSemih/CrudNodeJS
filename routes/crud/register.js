@@ -4,31 +4,22 @@ const db = require ('../../models/index')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Express' });
+  res.render('register', { title: 'Express' });
 });
 
 router.post('/', async function (req, res, next) {
     const { username, password } = req.body //  const username = req.body.username et  const password = req.body.password 
 
     const user = await db.User.findOne({where : {username: username}})
-    if (!user){
+    if (user){
 
-        res.render('login', { title: 'Express', error:'Nom utilisateur incorrect' });
+        res.render('register', { title: 'Express', error:'Cette utilisateur existe déjà' });
         return
         
     }
-    console.log(user.dataValues.password, password)
-    if (user.dataValues.password !== password)
-    {
-        res.render('login', { title: 'Express', error:'Mot de passe incorrect' });
-        return
-    }
-
-    user.username = 'azerty'
-    await user.save()
+    await db.User.create( {username: req.body.username, password: req.body.password} );
     res.redirect('/')
-
-
+    
 
 });
 
