@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Ajouter un film #{title}
+  form(method="POST" action="add")
+    label Title 
+    input(type="text" name="title")
+    label Résumé
+    input(type="text" name="resume")
+    label Genre
+    input(type="text" name="genre")
+    button entrer
+  p #{error}
+
+
+

@@ -24,9 +24,9 @@ router.post('/', async function (req, res, next) {
         return
     }
 
-    user.username = 'azerty'
+    
     await user.save()
-    res.redirect('/')
+    res.render('home', { title: 'Bienvenue ' + username });
 
 
 
