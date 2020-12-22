@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(method="POST" action="login")
+    label(for="") Username 
+    input(type="text" name="username")
+    label(for="") Password
+    input(type="password" name="password")
+    button entrer
+  p #{error}
+
+
+
