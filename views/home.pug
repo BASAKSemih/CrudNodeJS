@@ -4,4 +4,7 @@ block content
   h1= title
   p #{title}
   a(href="add") Add Film
-  p #{film}
+  each film in films 
+    h1 #{film.title}
+    p #{film.genre}
+    p #{film.resume}

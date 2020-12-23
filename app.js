@@ -23,7 +23,7 @@ app.use('/', require('./routes/index'));
 app.use('/login', require('./routes/crud/login'));
 app.use('/register', require('./routes/crud/register'));
 app.use('/add', require('./routes/crud/add'));
-
+app.use('/home', require('./routes/crud/home'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

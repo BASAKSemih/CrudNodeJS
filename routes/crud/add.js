@@ -18,7 +18,7 @@ router.post('/', async function (req, res, next) {
         
     }
     await db.film.create( {title: req.body.title, resume: req.body.resume, genre: req.body.genre} );
-    res.render('home', { title: 'Express', error:'Film ajouter avec succès ' });
+    res.redirect('home')
     
 
 });
